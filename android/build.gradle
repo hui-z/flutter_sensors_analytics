@@ -14,7 +14,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:2.1.0'
     }
 }
 
@@ -48,5 +47,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:2.1.0'
+    api 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:2.1.0'
 }

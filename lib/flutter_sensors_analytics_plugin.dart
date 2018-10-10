@@ -76,12 +76,12 @@ class FlutterSensorsAnalyticsPlugin {
     return await _channel.invokeMethod('append', {'content': content});
   }
 
-  /*iOS*/
+  /// iOS Only
   static Future deleteUser() async {
     return await _channel.invokeMethod('deleteUser');
   }
 
-  /*Android*/
+  /// Android Only
   static Future deleteProfile() async {
     return await _channel.invokeMethod('deleteProfile');
   }

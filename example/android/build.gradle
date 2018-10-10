@@ -3,10 +3,6 @@ buildscript {
     repositories {
         google()
         jcenter()
-        //添加 Sensors Analytics maven 库地址
-        maven {
-            url 'https://dl.bintray.com/zouyuhan/maven'
-        }
     }
 
     dependencies {
@@ -21,10 +17,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        //添加 Sensors Analytics maven 库地址
-        maven {
-            url 'https://dl.bintray.com/zouyuhan/maven'
-        }
     }
 }
 

@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    FlutterSensorsAnalyticsPlugin.start("https://sensor-collect.kezaihui.com/sa?project=default", 2);
+    FlutterSensorsAnalyticsPlugin.start("server_url", 2);
   }
 
   @override
