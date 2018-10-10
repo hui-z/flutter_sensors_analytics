@@ -1,0 +1,41 @@
+buildscript {
+    ext.kotlin_version = '1.2.30'
+    repositories {
+        google()
+        jcenter()
+        //添加 Sensors Analytics maven 库地址
+        maven {
+            url 'https://dl.bintray.com/zouyuhan/maven'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //添加神策分析 android-gradle-plugin 依赖
+        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:2.1.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        //添加 Sensors Analytics maven 库地址
+        maven {
+            url 'https://dl.bintray.com/zouyuhan/maven'
+        }
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

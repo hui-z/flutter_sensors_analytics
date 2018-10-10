@@ -1,0 +1,15 @@
+.DS_Store
+.dart_tool/
+
+.idea
+.vscode
+.atom/
+
+.packages
+.pub/
+
+build/
+
+.flutter-plugins
+
+android/app/release/
