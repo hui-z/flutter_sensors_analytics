@@ -2,18 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+enum DebugMode {
+  off, only, andTrack
+}
+
 class FlutterSensorsAnalyticsPlugin {
   static const MethodChannel _channel =
       const MethodChannel('flutter_sensors_analytics_plugin');
 
-
-  /// 0:DEBUG_OFF
-  /// 1:DEBUG_ONLY
-  /// 2:DEBUG_AND_TRACK
-  /// other:DEBUG_OFF
-  static Future start(String serverURL, int debugMode) async {
+  static Future start(String serverURL, DebugMode debugMode) async {
     return await _channel.invokeMethod(
-        'start', {'serverURL': serverURL, 'debugMode': debugMode});
+        'start', {'serverURL': serverURL, 'debugMode': debugMode.index});
   }
 
   static Future track(String event, {Map<String, dynamic> properties}) async {
