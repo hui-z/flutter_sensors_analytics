@@ -1,5 +1,8 @@
 # flutter_sensors_analytics_plugin
 
+[![pub packages](https://img.shields.io/pub/v/flutter_sensors_analytics_plugin.svg)](https://pub.dartlang.org/packages/flutter_sensors_analytics_plugin)
+[![LICENSE](https://img.shields.io/github/license/hui-z/flutter_sensors_analytics.svg)](https://github.com/hui-z/flutter_sensors_analytics/blob/master/LICENSE)
+
 这是一个集成神策SDK的插件
 
 使用前请先了解神策分析 [Android SDK使用说明](https://www.sensorsdata.cn/manual/android_sdk.html), [iOS SDK使用说明](https://www.sensorsdata.cn/manual/ios_sdk.html)
