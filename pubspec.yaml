@@ -1,6 +1,6 @@
 name: flutter_sensors_analytics_plugin
 description: Plugin that allow Flutter to communicate with SensorsAnalyticsSDK.
-version: 0.1.1
+version: 0.1.2
 author: Bai <equweiyu@hotmail.com>
 homepage: https://github.com/hui-z/flutter_sensors_analytics
 

@@ -2,6 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
+/// Debug模式有三种选项:
+/// * [off] 关闭DEBUG模式
+/// * [only] 打开DEBUG模式，但该模式下发送的数据仅用于调试，不进行数据导入
+/// * [andTrack] 打开DEBUG模式，并将数据导入到SensorsAnalytics中
 enum DebugMode { off, only, andTrack }
 
 class FlutterSensorsAnalyticsPlugin {
@@ -16,6 +20,7 @@ class FlutterSensorsAnalyticsPlugin {
 
   /// 调用track接口, 追踪一个带有属性的event
   static Future track(String event, {Map<String, dynamic> properties}) async {
+    _propertiesRemoveNull(properties);
     return await _channel
         .invokeMethod('track', {'event': event, 'properties': properties});
   }
@@ -28,6 +33,7 @@ class FlutterSensorsAnalyticsPlugin {
   /// 在事件结束时调用SDK,会追踪 "Event" 事件,并自动将事件持续时间记录在事件属性 "event_duration" 中。
   static Future trackTimerEnd(String event,
       {Map<String, dynamic> properties}) async {
+    _propertiesRemoveNull(properties);
     return await _channel.invokeMethod(
         'trackTimerEnd', {'event': event, 'properties': properties});
   }
@@ -55,18 +61,21 @@ class FlutterSensorsAnalyticsPlugin {
   /// Track $AppViewScreen事件
   static Future trackViewScreen(
       String event, Map<String, dynamic> properties) async {
+    _propertiesRemoveNull(properties);
     return await _channel.invokeMethod(
         'trackViewScreen', {'event': event, 'properties': properties});
   }
 
   /// 设置用户属性
   static Future setProfiles(Map<String, dynamic> properties) async {
+    _propertiesRemoveNull(properties);
     return await _channel
         .invokeMethod('setProfiles', {'properties': properties});
   }
 
   /// 只在首次设置时有效的属性
   static Future setOnceProfiles(Map<String, dynamic> properties) async {
+    _propertiesRemoveNull(properties);
     return await _channel
         .invokeMethod('setOnceProfiles', {'properties': properties});
   }
@@ -100,6 +109,7 @@ class FlutterSensorsAnalyticsPlugin {
 
   /// 设置事件公共属性，不受DataTrackConfig配置管理
   static Future registerSuperProperties(Map<String, dynamic> properties) async {
+    _propertiesRemoveNull(properties);
     return await _channel
         .invokeMethod('registerSuperProperties', {'properties': properties});
   }
@@ -113,6 +123,10 @@ class FlutterSensorsAnalyticsPlugin {
   /// 删除所有已设置的事件公共属性
   static Future clearSuperProperties() async {
     return await _channel.invokeMethod('clearSuperProperties');
+  }
+
+  static void _propertiesRemoveNull(Map<String, dynamic> properties) {
+    properties.removeWhere((_, value) => value == null);
   }
 
   @override
