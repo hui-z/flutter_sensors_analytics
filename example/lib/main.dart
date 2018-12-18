@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    FlutterSensorsAnalyticsPlugin.start("server_url", DebugMode.off);
+    FlutterSensorsAnalyticsPlugin.start("server_url", DebugMode.only);
   }
 
   @override
