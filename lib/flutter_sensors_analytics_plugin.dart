@@ -126,7 +126,7 @@ class FlutterSensorsAnalyticsPlugin {
   }
 
   static void _propertiesRemoveNull(Map<String, dynamic> properties) {
-    properties.removeWhere((_, __) => __ == null);
+    properties.removeWhere((_, value) => value == null);
   }
 
   @override
