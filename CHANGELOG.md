@@ -1,3 +1,7 @@
+## 0.1.3
+
+* update kotlin version to 1.3.50
+
 ## 0.1.2
 
 * fix properties null
