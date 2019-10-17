@@ -20,7 +20,9 @@ class FlutterSensorsAnalyticsPlugin {
 
   /// 调用track接口, 追踪一个带有属性的event
   static Future track(String event, {Map<String, dynamic> properties}) async {
-    _propertiesRemoveNull(properties);
+    if (properties != null) {
+      _propertiesRemoveNull(properties);
+    }
     return await _channel
         .invokeMethod('track', {'event': event, 'properties': properties});
   }
